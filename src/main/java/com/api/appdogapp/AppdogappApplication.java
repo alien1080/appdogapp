@@ -33,7 +33,7 @@ public class AppdogappApplication implements WebMvcConfigurer{
         repository.deleteById(id);
     }
     @PutMapping("/mascota")
-    public Mascota removeMascota(@RequestBody Mascota mascota){
+    public Mascota updateMascota(@RequestBody Mascota mascota){
         System.out.println(mascota.toString());
         repository.deleteById(mascota.getId());
         return repository.save(mascota);
