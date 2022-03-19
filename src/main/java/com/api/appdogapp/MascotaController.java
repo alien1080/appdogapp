@@ -1,4 +1,4 @@
-package com.api.appdogapp.controllers;
+package com.api.appdogapp;
 
 import com.api.appdogapp.models.Mascota;
 import com.api.appdogapp.services.ServicesMascota;
