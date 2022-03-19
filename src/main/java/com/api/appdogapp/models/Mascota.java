@@ -11,6 +11,7 @@ public class Mascota {
     private int id;
     private String tipo;
     private String nombre;
+    private byte[] imagen;
 
     public void setId(int id) {
         this.id = id;
@@ -34,5 +35,13 @@ public class Mascota {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 }
