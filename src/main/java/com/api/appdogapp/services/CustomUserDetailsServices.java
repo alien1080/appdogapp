@@ -11,14 +11,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomUserDetailsServices implements UserDetailsService{
+
+    private final UsuarioRepository repository;
     @Autowired
-    private UsuarioRepository repository;
+    public CustomUserDetailsServices(UsuarioRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario=repository.findByUsername(username);
         if (usuario==null)
-            throw new UsernameNotFoundException("El usuario no valida");
+            throw new UsernameNotFoundException("El usuario no es valida");
         return new CustomUserDetails(usuario);
     }
 }

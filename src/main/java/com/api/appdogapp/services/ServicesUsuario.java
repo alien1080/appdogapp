@@ -15,11 +15,24 @@ public class ServicesUsuario {
     public ServicesUsuario(UsuarioRepository userRepository) {
         this.userRepository = userRepository;
     }
+
+
     public Usuario saveUser(Usuario user){
         return userRepository.save(user);
     }
     public Optional<Usuario> getUsuario(Long id){
         return userRepository.findById(id);
     }
+    public Usuario getUsuario(String username){
+        return userRepository.findByUsername(username);
+    }
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+    public String removeUsuario(Long id){
+        userRepository.deleteById(id);
 
+        return "Remove successful";
+
+    }
 }

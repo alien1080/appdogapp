@@ -3,6 +3,8 @@ package com.api.appdogapp.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,7 +29,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public SecurityConfiguration(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
-
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
     @Bean
     AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
@@ -42,11 +48,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/registrarme").permitAll()
-                .antMatchers("/usuarios")
+                .antMatchers("/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/usuarios").permitAll()
+                .antMatchers(HttpMethod.GET, "/usuarios/**")
                 .authenticated()
                 .and()
                 .httpBasic();
+
                 /*.anyRequest()
                 .permitAll()
                 .and()
