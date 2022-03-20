@@ -15,7 +15,6 @@ public class Mascota {
     private String especie;
     private int estado;
     private String nombre;
-    private byte[] imagen;
 
     public int getId() {
         return id;
@@ -65,11 +64,4 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
 }
