@@ -3,7 +3,6 @@ package com.api.appdogapp.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
 public class Mascota {
@@ -15,6 +14,7 @@ public class Mascota {
     private String especie;
     private int estado;
     private String nombre;
+    private String imagen;
 
     public int getId() {
         return id;
@@ -64,4 +64,11 @@ public class Mascota {
         this.nombre = nombre;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }

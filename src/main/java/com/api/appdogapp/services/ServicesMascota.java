@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,8 +24,8 @@ public class ServicesMascota {
         return repository.save(mascota);
     }
 
-    public List<Mascota> getMascotas(){
-        return repository.findAll();
+    public ArrayList<Mascota> getMascotas(){
+        return (ArrayList<Mascota>) repository.findAll();
     }
 
     public Optional<Mascota> showMascota(int id){
