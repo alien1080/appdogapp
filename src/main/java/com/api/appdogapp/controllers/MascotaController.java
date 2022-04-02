@@ -40,6 +40,7 @@ public class MascotaController {
         System.out.println("id: "+id);
         return servicesMascota.removeMascota(id);
     }
+
     @PutMapping("/actualizar")
     public Mascota updateMascota(@RequestBody Mascota mascota){
         return servicesMascota.updateMascota(mascota);

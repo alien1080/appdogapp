@@ -1,8 +1,6 @@
 package com.api.appdogapp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Mascota {
@@ -15,6 +13,11 @@ public class Mascota {
     private int estado;
     private String nombre;
     private String imagen;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName = "id")
+    private Estado state;
 
     public int getId() {
         return id;
@@ -70,5 +73,18 @@ public class Mascota {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    @Override
+    public String toString() {
+        return "Mascota{" +
+                "id=" + id +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                ", sexo=" + sexo +
+                ", especie='" + especie + '\'' +
+                ", estado=" + estado +
+                ", nombre='" + nombre + '\'' +
+                ", imagen='" + imagen + '\'' +
+                '}';
     }
 }

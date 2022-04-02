@@ -1,8 +1,8 @@
 package com.api.appdogapp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Usuario {
@@ -17,6 +17,7 @@ public class Usuario {
     private String apellidos;
     private String direccion;
     private String rol;
+
 
     public Long getId() {
         return id;
