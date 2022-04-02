@@ -4,6 +4,7 @@ import com.api.appdogapp.models.Solicitud;
 import com.api.appdogapp.services.SolicitudServices;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,5 +21,9 @@ public class SolicitudController {
     @GetMapping("/solicitud/{id}")
     public Optional<Solicitud> getSolicitud(@PathVariable long id){
         return solicitudServices.getSolicitud(id);
+    }
+    @GetMapping("/solicitudes")
+    public List<Solicitud> getSolicitudes(){
+        return solicitudServices.getSolicitudes();
     }
 }
