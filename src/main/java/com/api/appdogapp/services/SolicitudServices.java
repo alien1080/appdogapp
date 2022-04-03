@@ -28,4 +28,8 @@ public class SolicitudServices {
     public Optional<Solicitud> getSolicitud(long id){
         return solicitudRepository.findById(id);
     }
+
+    public void removeSolicitud(long id) {
+        solicitudRepository.deleteById(id);
+    }
 }

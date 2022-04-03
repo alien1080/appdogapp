@@ -18,6 +18,11 @@ public class SolicitudController {
     public Solicitud saveSolicitud(@RequestBody Solicitud solicitud) {
         return solicitudServices.saveSolicitud(solicitud);
     }
+    @DeleteMapping("/solicitud/{id}")
+    public void removeSolicitud(@PathVariable long id){
+        solicitudServices.removeSolicitud(id);
+    }
+
     @GetMapping("/solicitud/{id}")
     public Optional<Solicitud> getSolicitud(@PathVariable long id){
         return solicitudServices.getSolicitud(id);

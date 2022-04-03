@@ -11,6 +11,9 @@ public class Solicitud {
 
     private Long idUsuario;
     private Long idMascota;
+
+    @Column(nullable = true)
+    private int estado;
     private String mensaje;
 
    @ManyToOne(fetch = FetchType.LAZY)
@@ -49,5 +52,13 @@ public class Solicitud {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 }
