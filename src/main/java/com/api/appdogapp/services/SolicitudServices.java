@@ -5,6 +5,8 @@ import com.api.appdogapp.repositories.SolicitudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +21,9 @@ public class SolicitudServices {
     }
 
     public Solicitud saveSolicitud(Solicitud solicitud){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("dd/MM/yyyy-> "+dtf.format(LocalDateTime.now()));
+        solicitud.setFecha(dtf.format(LocalDateTime.now()));
         return solicitudRepository.save(solicitud);
     }
     public List<Solicitud> getSolicitudes() {

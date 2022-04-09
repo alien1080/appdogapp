@@ -15,6 +15,7 @@ public class Solicitud {
     @Column(nullable = true)
     private int estado;
     private String mensaje;
+    private String fecha;
 
    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
@@ -60,5 +61,13 @@ public class Solicitud {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
